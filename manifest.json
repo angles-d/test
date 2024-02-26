@@ -1,0 +1,7 @@
+{
+  "name": "Full name of your PWA",
+  "display": "standalone",
+  "short_name": "PWA Name",
+  "start_url": "https://angles-d.github.io/test/index.html",
+  "scope": "https://angles-d.github.io"
+}
