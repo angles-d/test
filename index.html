@@ -1,55 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <title>notif-test</title>
-
-  <base href="/" />
-
-  <!-- This meta viewport ensures the webpage's dimensions change according to the device it's on. This is called Responsive Web Design.-->
-  <meta name="viewport"
-    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <meta name="description" content="This is a notif-test app" />
-
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3" />
-
-  <!-- These meta tags are Apple-specific, and set the web application to run in full-screen mode with a black status bar. Learn more at https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="notif-test" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  <!-- This tag is used by the notif-test CLI to identify template projects. Don't remove if you are using the CLI. -->
-  <meta name="pwa-starter-template-identity" content="pwa-starter"/>
-
-  <!-- Imports an icon to represent the document. -->
-  <link rel="icon" href="/assets/icons/icon_24.png" type="image/png" />
-
-  <!-- Imports the manifest to represent the web application. A web app must have a manifest to be a PWA. -->
-  <link rel="manifest" href="/manifest.json" />
-
-  <!-- light mode and dark mode CSS -->
-  <link rel="stylesheet" media="(prefers-color-scheme:light)"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/light.css">
-  <link rel="stylesheet" media="(prefers-color-scheme:dark)"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/dark.css"
-    onload="document.documentElement.classList.add('sl-theme-dark');">
-
-  <script type="module" src="/src/app-index.ts"></script>
+	<meta charset="utf-8">
+	<title>js13kGames A-Frame entries</title>
+	<meta name="description" content="A list of A-Frame entries submitted to the js13kGames 2017 competition, used as an example for the MDN articles about Progressive Web Apps.">
+	<meta name="author" content="end3r">
+	<meta name="theme-color" content="#B12A34">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:image" content="icons/icon-512.png">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="style.css">
+	<link rel="manifest" href="js13kpwa.webmanifest">
+	<script src="data/games.js" defer></script>
+	<script src="app.js" defer></script>
 </head>
-
 <body>
-  <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
-  <app-index></app-index>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register(
-        '/sw.js'
-      );
-    }
-  </script>
+<header>
+	<p><a class="logo" href="http://js13kgames.com"><img src="img/js13kgames.png" alt="js13kGames"></a></p>
+</header>
+<main>
+	<h1>js13kGames A-Frame entries</h1>
+	<p class="description">List of games submitted to the <a href="http://js13kgames.com/aframe">A-Frame category</a> in the <a href="http://2017.js13kgames.com">js13kGames 2017</a> competition. You can <a href="https://github.com/mdn/pwa-examples/blob/master/js13kpwa">fork js13kPWA on GitHub</a> to check its source code.</p>
+	<button id="notifications">Request dummy notifications</button>
+	<section id="content"></section>
+</main>
+<footer>
+	<p>&copy; js13kGames 2012-2018, created and maintained by <a href="http://end3r.com">Andrzej Mazur</a> from <a href="http://enclavegames.com">Enclave Games</a>.</p>
+</footer>
 </body>
-
 </html>
