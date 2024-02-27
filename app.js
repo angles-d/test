@@ -1,5 +1,5 @@
 // Registering Service Worker
-navigator.serviceWorker.register("/sw.js");
+navigator.serviceWorker.register("./sw.js");
 
 registration.periodicSync.register("background-test", {
   minInterval: 1000 * 10,
