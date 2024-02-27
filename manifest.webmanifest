@@ -1,7 +1,7 @@
 {
-  "name": "Full name of your PWA",
+  "name": "Notification test",
   "display": "standalone",
-  "short_name": "PWA Name",
+  "short_name": "Notif",
   "start_url": "https://angles-d.github.io/test/index.html",
   "scope": "https://angles-d.github.io"
 }
