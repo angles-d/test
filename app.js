@@ -5,9 +5,10 @@ if ("serviceWorker" in navigator) {
 
 async function registerPeriodicNewsCheck() {
   console.log("p sync");
-  const registration = await navigator.serviceWorker.ready;
-  registration.periodicSync.register("background-test", {
-    minInterval: 10 * 1000,
+  navigator.serviceWorker.ready.then((registration) => {
+    registration.periodicSync.register("background-test", {
+      minInterval: 10 * 1000,
+    });
   });
 }
 
