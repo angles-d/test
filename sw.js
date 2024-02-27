@@ -35,21 +35,18 @@ self.addEventListener("fetch", (e) => {
   );
 });
 
-registration.periodicSync.register("background-test", {
-  minInterval: 1000 * 10,
-});
+self.addEventListener("push", function (event) {
+  console.log("[Service Worker] Push Received.");
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
-self.addEventListener("periodicsync", (event) => {
-  if (event.tag === "background-test") {
-    console.log("SYNCED");
-    Notification.requestPermission().then((result) => {
-      if (result === "granted") {
-        navigator.serviceWorker.ready.then((registration) => {
-          self.registration.showNotification("Wake Time !!!", {
-            body: `Hi, Good Morning`,
-          });
-        });
-      }
-    });
-  }
+  const title =
+    "Takeaways From the Supreme Court Arguments on Social Media Laws";
+  const notifBody = `Laws in Texas and Florida seek to limit social media companies’ ability to moderate content on their platforms and could shape the future of speech on the internet.`;
+  const notifImg = `data/img/sc.webp`;
+  const options = {
+    body: notifBody,
+    icon: notifImg,
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
 });

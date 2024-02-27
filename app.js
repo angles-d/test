@@ -4,25 +4,23 @@ if ("serviceWorker" in navigator) {
 }
 
 async function registerPeriodicNewsCheck() {
+  console.log("p sync");
   const registration = await navigator.serviceWorker.ready;
-  try {
-    await registration.periodicSync.register("background-test", {
-      minInterval: 10 * 1000,
-    });
-  } catch {
-    console.log("Periodic Sync could not be registered!");
-  }
+  registration.periodicSync.register("background-test", {
+    minInterval: 10 * 1000,
+  });
 }
 
 // Requesting permission for Notifications after clicking on the button
 const button1 = document.getElementById("notification-in");
 button1.addEventListener("click", () => {
-  Notification.requestPermission().then((result) => {
-    console.log("permission " + result);
-    if (result === "granted") {
-      randomNotificationIn();
-    }
-  });
+  // Notification.requestPermission().then((result) => {
+  //   console.log("permission " + result);
+  //   if (result === "granted") {
+  //     randomNotificationIn();
+  //   }
+  // });
+  registerPeriodicNewsCheck();
 });
 
 const button2 = document.getElementById("notification-out");
@@ -30,10 +28,23 @@ button2.addEventListener("click", () => {
   Notification.requestPermission().then((result) => {
     console.log("permission " + result);
     if (result === "granted") {
-      randomNotificationOut();
+      // randomNotificationOut();
+      swNotif();
     }
   });
 });
+
+function swNotif() {
+  Notification.requestPermission().then((result) => {
+    if (result === "granted") {
+      navigator.serviceWorker.ready.then((registration) => {
+        registration.showNotification("Wake Time !!!", {
+          body: `Hi, Good Morning`,
+        });
+      });
+    }
+  });
+}
 
 // Setting up random Notification
 function randomNotificationIn() {
