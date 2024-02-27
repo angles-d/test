@@ -1,7 +1,9 @@
 // Registering Service Worker
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js");
-}
+navigator.serviceWorker.register("/sw.js");
+
+registration.periodicSync.register("background-test", {
+  minInterval: 1000 * 10,
+});
 
 // Requesting permission for Notifications after clicking on the button
 const button1 = document.getElementById("notification-in");
