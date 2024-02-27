@@ -36,11 +36,12 @@ function randomNotificationIn() {
   };
   notifIn = new Notification(notifTitle, options);
   notifIn.onclick = (event) => {
-    event.preventDefault(); // prevent the browser from focusing the Notification's tab
-    window.open(
-      "https://www.nytimes.com/2024/02/26/us/politics/supreme-court-social-media-takeaways.html",
-      "_self"
-    );
+    // event.preventDefault(); // prevent the browser from focusing the Notification's tab
+    // window.open(
+    //   "https://www.nytimes.com/2024/02/26/us/politics/supreme-court-social-media-takeaways.html",
+    //   "_self"
+    // );
+    randomNotificationIn();
   };
 }
 
