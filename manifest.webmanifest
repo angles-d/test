@@ -3,5 +3,14 @@
   "display": "standalone",
   "short_name": "Notif",
   "start_url": "https://angles-d.github.io/test/index.html",
-  "scope": "https://angles-d.github.io"
+  "scope": "https://angles-d.github.io",
+  "theme_color": "#B12A34",
+  "background_color": "#B12A34",
+  "icons": [
+    {
+      "src": "logo/logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
 }

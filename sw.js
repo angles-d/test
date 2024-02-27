@@ -35,6 +35,10 @@ self.addEventListener("fetch", (e) => {
   );
 });
 
+registration.periodicSync.register("background-test", {
+  minInterval: 1000 * 10,
+});
+
 self.addEventListener("periodicsync", (event) => {
   if (event.tag === "background-test") {
     console.log("SYNCED");

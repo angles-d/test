@@ -1,9 +1,18 @@
 // Registering Service Worker
-navigator.serviceWorker.register("./sw.js");
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
 
-registration.periodicSync.register("background-test", {
-  minInterval: 1000 * 10,
-});
+async function registerPeriodicNewsCheck() {
+  const registration = await navigator.serviceWorker.ready;
+  try {
+    await registration.periodicSync.register("background-test", {
+      minInterval: 10 * 1000,
+    });
+  } catch {
+    console.log("Periodic Sync could not be registered!");
+  }
+}
 
 // Requesting permission for Notifications after clicking on the button
 const button1 = document.getElementById("notification-in");
