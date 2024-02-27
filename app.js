@@ -53,12 +53,19 @@ function randomNotificationOut() {
     body: notifBody,
     icon: notifImg,
   };
-  notif_out = new Notification(notifTitle, options);
-  notif_out.onclick = (event) => {
-    event.preventDefault(); // prevent the browser from focusing the Notification's tab
-    window.open(
-      "https://www.nytimes.com/2024/02/26/us/politics/supreme-court-social-media-takeaways.html",
-      "_blank"
-    );
-  };
+
+  timer = setInterval(() => {
+    notif_out = new Notification(notifTitle, options);
+    notif_out.onclick = (event) => {
+      event.preventDefault(); // prevent the browser from focusing the Notification's tab
+      window.open(
+        "https://www.nytimes.com/2024/02/26/us/politics/supreme-court-social-media-takeaways.html",
+        "_blank"
+      );
+    };
+  }, 3000);
+  setTimeout(() => {
+    console.log("stop");
+    clearInterval(timer);
+  }, 9000);
 }
