@@ -1,8 +1,3 @@
-// Registering Service Worker
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js");
-}
-
 // Requesting permission for Notifications after clicking on the button
 const button1 = document.getElementById("notification-in");
 button1.addEventListener("click", () => {
@@ -36,12 +31,11 @@ function randomNotificationIn() {
   };
   notifIn = new Notification(notifTitle, options);
   notifIn.onclick = (event) => {
-    // event.preventDefault(); // prevent the browser from focusing the Notification's tab
-    // window.open(
-    //   "https://www.nytimes.com/2024/02/26/us/politics/supreme-court-social-media-takeaways.html",
-    //   "_self"
-    // );
-    randomNotificationIn();
+    event.preventDefault(); // prevent the browser from focusing the Notification's tab
+    window.open(
+      "https://www.nytimes.com/2024/02/26/us/politics/supreme-court-social-media-takeaways.html",
+      "_self"
+    );
   };
 }
 
